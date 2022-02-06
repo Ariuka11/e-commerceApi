@@ -1,12 +1,9 @@
 const router = require("express").Router();
-const {
-  veriftyTokenAndAuthorization,
-  verifyTokenAndAdmin,
-} = require("./verifyToken");
+const { verifyTokenAndAdmin } = require("./verifyToken");
 
 const User = require("../models/User");
 
-router.get("/", async (req, res) => {
+router.get("/", verifyTokenAndAdmin, async (req, res) => {
   const date = new Date();
   const lastYear = new Date(date.setFullYear(date.getFullYear() - 1));
 

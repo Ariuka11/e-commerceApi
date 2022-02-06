@@ -63,3 +63,4 @@ router.get("/", async (req, res) => {
 });
 
 //Get User Stats
+module.exports = router;
