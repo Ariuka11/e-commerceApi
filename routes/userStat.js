@@ -12,7 +12,7 @@ router.get("/", verifyTokenAndAdmin, async (req, res) => {
       { $match: { createdAt: { $gte: lastYear } } },
       {
         $project: {
-          month: { $year: "$createdAt" },
+          month: { $month: "$createdAt" },
         },
       },
       {
