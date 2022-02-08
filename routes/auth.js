@@ -23,7 +23,7 @@ router.post("/register", async (req, res) => {
 
 //Login
 
-router.post("/login", async (req, res) => {
+router.post("/login", async (req, res, next) => {
   try {
     const user = await User.findOne({ username: req.body.username });
     !user && res.status(401).json("User not found!");
@@ -47,7 +47,7 @@ router.post("/login", async (req, res) => {
     const { password, ...others } = user._doc;
     res.status(200).json({ ...others, accessToken });
   } catch (err) {
-    return res.status(500).json(err);
+    next(err);
   }
 });
 
