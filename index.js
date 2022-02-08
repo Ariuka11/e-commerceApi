@@ -31,6 +31,6 @@ app.use("/api/order", orderRoute);
 app.use("/api/checkout", stripeRoute);
 app.use("/api/stats", userStat);
 
-app.listen(5000, () => {
+app.listen(process.env.PORT || 5000, () => {
   console.log("Server is running");
 });
