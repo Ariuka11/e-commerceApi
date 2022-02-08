@@ -10,6 +10,7 @@ const cartRoute = require("./routes/cart");
 const orderRoute = require("./routes/order");
 const stripeRoute = require("./routes/stripe");
 const userStat = require("./routes/userStat");
+const incomeRoute = require("./routes/income");
 
 dotenv.config();
 
@@ -45,6 +46,7 @@ app.use("/api/cart", cartRoute);
 app.use("/api/order", orderRoute);
 app.use("/api/checkout", stripeRoute);
 app.use("/api/stats", userStat);
+app.use("/api/income", incomeRoute);
 
 app.listen(process.env.PORT || 5000, () => {
   console.log("Server is running");
