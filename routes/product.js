@@ -39,7 +39,7 @@ router.delete("/:id", verifyTokenAndAdmin, async (req, res) => {
   }
 });
 
-//Get Single Product
+// Get Single Product
 router.get("/:id", async (req, res) => {
   try {
     const product = await Product.findById(req.params.id);
